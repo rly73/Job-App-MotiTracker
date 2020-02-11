@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "Jobapplication.db";
-    private static final String TABLE_NAME = "JOBAPPLICATIONS";
+    public static final String DATABASE_NAME = "Jobapplication.db";
+    public static final String TABLE_NAME = "JOBAPPLICATIONS";
     public static final String _ID = "ID";
     public static final String COMPANY_NAME = "COMPANY_NAME";
     public static final String JOB_POSITION = "JOB_POSITION";
