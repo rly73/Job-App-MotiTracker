@@ -8,7 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Jobapplication.db";
+
+    private static final int DATABASE_VERSION = 1;
+
+    public static final String DATABASE_NAME = "jobApplications.db";
     public static final String TABLE_NAME = "JOBAPPLICATIONS";
     public static final String _ID = "ID";
     public static final String COMPANY_NAME = "COMPANY_NAME";
@@ -23,8 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " INTEGER, " + NOTES + " TEXT);";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, DATABASE_NAME, null, 1);
-
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override

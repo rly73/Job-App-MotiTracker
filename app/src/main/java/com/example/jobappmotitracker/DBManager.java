@@ -15,7 +15,7 @@ public class DBManager {
         context = c;
     }
 
-    public DBManager open() throws Exception {
+    public DBManager open() {
         dbHelper = new DatabaseHelper(context);
         database = dbHelper.getWritableDatabase();
         return this;
@@ -47,12 +47,15 @@ public class DBManager {
     }
 
     public int update(long _id,String company_name, String job_position, String date_applied, Integer pay, String notes){
+
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(DatabaseHelper.COMPANY_NAME, company_name);
         contentValues.put(DatabaseHelper.JOB_POSITION, job_position);
         contentValues.put(DatabaseHelper.DATE_APPLIED, date_applied);
         contentValues.put(DatabaseHelper.PAY, pay);
         contentValues.put(DatabaseHelper.NOTES, notes);
+
         int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
     }
