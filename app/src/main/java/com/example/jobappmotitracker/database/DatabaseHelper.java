@@ -1,4 +1,4 @@
-package com.example.jobappmotitracker;
+package com.example.jobappmotitracker.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

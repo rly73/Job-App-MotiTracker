@@ -1,4 +1,4 @@
-package com.example.jobappmotitracker;
+package com.example.jobappmotitracker.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,7 +25,7 @@ public class DBManager {
         dbHelper.close();
     }
 
-    public void insert(String company_name, String job_position, String date_applied, Integer pay, String notes){
+    public void insertJobApp(String company_name, String job_position, String date_applied, Integer pay, String notes){
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.COMPANY_NAME, company_name);
         contentValues.put(DatabaseHelper.JOB_POSITION, job_position);
@@ -36,7 +36,7 @@ public class DBManager {
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
 
-    public Cursor fetch(){
+    public Cursor getJobApp(){
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.COMPANY_NAME, DatabaseHelper.DATE_APPLIED,
                         DatabaseHelper.PAY, DatabaseHelper.NOTES};
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
