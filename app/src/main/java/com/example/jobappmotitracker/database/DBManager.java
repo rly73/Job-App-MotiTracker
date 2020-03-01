@@ -4,6 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
+
+import com.example.jobappmotitracker.database.model.JobApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DBManager {
@@ -36,14 +42,23 @@ public class DBManager {
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
 
-    public Cursor getJobApp(){
+    public List<JobApplication> getJobApp(){
+        List<JobApplication> apps = new ArrayList<>();
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.COMPANY_NAME, DatabaseHelper.DATE_APPLIED,
                         DatabaseHelper.PAY, DatabaseHelper.NOTES};
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
+        if(cursor.moveToFirst()){
+            do{
+                JobApplication app = new JobApplication();
+                app.setCompanyName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COMPANY_NAME)));
+                app.setDateApplied(cursor.getString(cursor.getColumnIndex(DatabaseHelper.JOB_POSITION)));
+                app.setJobPosition(cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATE_APPLIED)));
+                app.setPay(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.PAY)));
+                app.setNotes(cursor.getString(cursor.getColumnIndex(DatabaseHelper.NOTES)));
+            }while(cursor.moveToNext());
         }
-        return cursor;
+
+        return apps;
     }
 
     public int update(long _id,String company_name, String job_position, String date_applied, Integer pay, String notes){

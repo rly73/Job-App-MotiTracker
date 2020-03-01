@@ -4,6 +4,9 @@ public class JobApplication {
     private String company_name,job_position,date_applied,notes;
     private double pay;
 
+    public JobApplication(){
+
+    }
     public JobApplication(String company_name, String job_position, String date_applied, double pay, String notes) {
         this.company_name = company_name;
         this.job_position = job_position;
