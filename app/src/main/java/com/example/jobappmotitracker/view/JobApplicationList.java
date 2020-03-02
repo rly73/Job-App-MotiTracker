@@ -1,9 +1,11 @@
 package com.example.jobappmotitracker.view;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jobappmotitracker.R;
@@ -17,7 +19,7 @@ public class JobApplicationList extends AppCompatActivity {
     private List<JobApplication> appList = new ArrayList<>();
     private RecyclerView recyclerView;
     private TextView noAppView;
-
+    private JobAdapter adapter;
     private DBManager dbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +28,16 @@ public class JobApplicationList extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.job_app_recycler_list);
 
-        dbManager = new DBManager(this);
-        dbManager.open();
 
-        JobApplication var1 = new JobApplication("Costco","cashier","10/19/1996",10,"notes");
-        JobApplication var2 = new JobApplication("Walmart","cashier","10/19/1996",10,"notes");
-        JobApplication var3 = new JobApplication("Target","cashier","10/19/1996",10,"notes");
-        JobApplication var4 = new JobApplication("","cashier","10/19/1996",10,"notes");
+        JobApplication var1 = new JobApplication("Name","nothing","ddd",10,"dd");
+        appList.add(var1);
+        adapter = new JobAdapter(this,appList);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
-        dbManager.insertJobApp(var1.getCompanyName(),var1.getJobPosition(),var1.getDateApplied(),100,var1.getNotes());
-        dbManager.insertJobApp(var2.getCompanyName(),var2.getJobPosition(),var2.getDateApplied(),100,var2.getNotes());
-        dbManager.insertJobApp(var3.getCompanyName(),var3.getJobPosition(),var3.getDateApplied(),100,var3.getNotes());
-        dbManager.insertJobApp(var4.getCompanyName(),var4.getJobPosition(),var4.getDateApplied(),100,var4.getNotes());
-        appList.addAll(dbManager.getJobApp());
-        
+
+
+
     }
 }

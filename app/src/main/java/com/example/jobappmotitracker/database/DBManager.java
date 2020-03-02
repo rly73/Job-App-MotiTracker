@@ -18,7 +18,7 @@ public class DBManager {
     private SQLiteDatabase database;
 
     public DBManager(Context c){
-        context = c;
+        this.context = c;
     }
 
     public DBManager open() {
@@ -42,7 +42,8 @@ public class DBManager {
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
 
-    public List<JobApplication> getJobApp(){
+    public List<JobApplication> getAllJobApp(){
+
         List<JobApplication> apps = new ArrayList<>();
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.COMPANY_NAME, DatabaseHelper.DATE_APPLIED,
                         DatabaseHelper.PAY, DatabaseHelper.NOTES};

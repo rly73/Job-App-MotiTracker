@@ -54,12 +54,12 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
         holder.company_name.setText(app.getCompanyName());
         holder.job_position.setText(app.getJobPosition());
         holder.date_applied.setText(app.getDateApplied());
-        holder.pay.setText((int) app.getPay());
+        holder.pay.setText( String.valueOf(app.getPay()));
+
     }
 
     @Override
     public int getItemCount() {
-
         return appList.size();
     }
 
