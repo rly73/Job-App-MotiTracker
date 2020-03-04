@@ -6,22 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".view.JobApplicationList">
 
-    <TextView
-        android:id="@+id/job_app_list_title"
-        android:layout_width="205dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:text="Current Job Applications"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.077"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/job_app_recycler_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,14 +23,14 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
         public final TextView company_name;
         public final TextView job_position;
         public final TextView date_applied;
-        public final TextView pay;
+        public final TextView location;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             company_name = itemView.findViewById(R.id.text_company_name);
             job_position = itemView.findViewById(R.id.text_job_position);
-            date_applied = itemView.findViewById(R.id.text_date_applied);
-            pay = itemView.findViewById(R.id.text_pay);
+            date_applied = itemView.findViewById(R.id.text_location);
+            location = itemView.findViewById(R.id.text_location);
         }
     }
 
@@ -54,8 +54,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
         holder.company_name.setText(app.getCompanyName());
         holder.job_position.setText(app.getJobPosition());
         holder.date_applied.setText(app.getDateApplied());
-        holder.pay.setText( String.valueOf(app.getPay()));
-
+        holder.location.setText( app.getLocation());
     }
 
     @Override

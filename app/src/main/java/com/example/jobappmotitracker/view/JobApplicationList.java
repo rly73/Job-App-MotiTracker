@@ -29,8 +29,34 @@ public class JobApplicationList extends AppCompatActivity {
         recyclerView = findViewById(R.id.job_app_recycler_list);
 
 
-        JobApplication var1 = new JobApplication("Name","nothing","ddd",10,"dd");
+        JobApplication var1 = new JobApplication("Facebook","Software Developer","Jan 20, 2020", 10, "", "San Francisco","CA");
         appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+        appList.add(var1);
+
+
+
         adapter = new JobAdapter(this,appList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);

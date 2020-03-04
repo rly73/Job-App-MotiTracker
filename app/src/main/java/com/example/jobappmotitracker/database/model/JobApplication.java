@@ -1,18 +1,21 @@
 package com.example.jobappmotitracker.database.model;
 
 public class JobApplication {
-    private String company_name,job_position,date_applied,notes;
+    private String company_name,job_position,date_applied,notes,city,state,location;
     private double pay;
 
     public JobApplication(){
 
     }
-    public JobApplication(String company_name, String job_position, String date_applied, double pay, String notes) {
+    public JobApplication(String company_name, String job_position, String date_applied, double pay, String notes,String city, String state) {
         this.company_name = company_name;
         this.job_position = job_position;
         this.date_applied = date_applied;
         this.pay = pay;
         this.notes = notes;
+        this.city = city;
+        this.state = state;
+        this.location = this.city + ", " + this.state;
     }
 
     public void setCompanyName(String company_name){
@@ -27,6 +30,9 @@ public class JobApplication {
     public void setPay(double pay){
         this.pay = pay;
     }
+    public void setCity(String city){ this.city = city; }
+    public void setState(String state){ this.state = state;}
+    public void setLocation(String location){this.location = location;}
     public void setNotes(String notes){
         this.notes = notes;
     }
@@ -36,13 +42,10 @@ public class JobApplication {
     public String getJobPosition(){
         return this.job_position;
     }
-    public String getDateApplied(){
-        return this.date_applied;
-    }
-    public double getPay(){
-        return this.pay;
-    }
-    public String getNotes(){
-        return this.notes;
-    }
+    public String getDateApplied(){ return this.date_applied; }
+    public double getPay(){ return this.pay; }
+    public String getNotes(){ return this.notes; }
+    public String getCity(){ return this.city;}
+    public String getState(){ return this.state;}
+    public String getLocation(){return this.location;}
 }
