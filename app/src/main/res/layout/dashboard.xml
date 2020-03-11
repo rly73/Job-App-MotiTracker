@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:text="Insert Inspirational Quote Here"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:layout_gravity="center_vertical"
         android:gravity="center"/>
     <com.github.mikephil.charting.charts.LineChart
