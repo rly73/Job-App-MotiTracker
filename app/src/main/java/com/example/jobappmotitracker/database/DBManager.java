@@ -4,9 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 
-import com.example.jobappmotitracker.database.model.JobApplication;
+import com.example.jobappmotitracker.model.JobApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class DBManager {
         dbHelper.close();
     }
 
-    public void insertJobApp(String company_name, String job_position, String date_applied, String location, Integer pay, String notes){
+    public void insertJobApp(String company_name, String job_position, String date_applied, String location, Integer pay, String notes, String status){
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.COMPANY_NAME, company_name);
         contentValues.put(DatabaseHelper.JOB_POSITION, job_position);
@@ -39,6 +38,7 @@ public class DBManager {
         contentValues.put(DatabaseHelper.LOCATION, location);
         contentValues.put(DatabaseHelper.PAY, pay);
         contentValues.put(DatabaseHelper.NOTES, notes);
+        contentValues.put(DatabaseHelper.STATUS,status);
 
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
@@ -58,6 +58,7 @@ public class DBManager {
                 app.setCity(cursor.getString(cursor.getColumnIndex(DatabaseHelper.LOCATION)));
                 app.setPay(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.PAY)));
                 app.setNotes(cursor.getString(cursor.getColumnIndex(DatabaseHelper.NOTES)));
+
             }while(cursor.moveToNext());
         }
 

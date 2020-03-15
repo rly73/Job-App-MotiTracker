@@ -20,11 +20,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String PAY = "PAY";
     public static final String NOTES = "NOTES";
     public static final String LOCATION = "LOCATION";
+    public static final String STATUS = "STATUS";
 
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COMPANY_NAME + " TEXT NOT NULL, "
             + JOB_POSITION + " TEXT," + DATE_APPLIED + " TEXT NOT NULL, " + LOCATION + " TEXT," + PAY
-            + " INTEGER, " + NOTES + " TEXT);";
+            + " INTEGER, " + NOTES + " TEXT," + STATUS + " TEXT);" ;
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

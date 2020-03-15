@@ -1,6 +1,5 @@
 package com.example.jobappmotitracker.view;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jobappmotitracker.R;
 import com.example.jobappmotitracker.database.DBManager;
-import com.example.jobappmotitracker.database.model.JobApplication;
+import com.example.jobappmotitracker.model.JobApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class JobApplicationList extends AppCompatActivity {
         recyclerView = findViewById(R.id.job_app_recycler_list);
 
 
-        JobApplication var1 = new JobApplication("Facebook","Software Developer","Jan 20, 2020", 10, "", "San Francisco","CA");
+        JobApplication var1 = new JobApplication("Facebook","Software Developer","Jan 20, 2020", 10, "", "San Francisco","CA",null);
         appList.add(var1);
         appList.add(var1);
         appList.add(var1);

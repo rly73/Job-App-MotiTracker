@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jobappmotitracker.R;
-import com.example.jobappmotitracker.database.model.JobApplication;
+import com.example.jobappmotitracker.model.JobApplication;
 
 import java.util.List;
 
