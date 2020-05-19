@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Job App MotiTracker</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="status_items">
+        <item>Enter application status</item>
+        <item>Responded</item>
+        <item>Interview</item>
+        <item>Rejected</item>
+        <item>Offered</item>
+        <item>No Response</item>
+    </string-array>
+
+
 </resources>

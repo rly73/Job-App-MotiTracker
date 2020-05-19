@@ -59,7 +59,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:text="San Francisco, CA"
+            android:text="Nothing"
             card_view:layout_constraintBottom_toTopOf="@+id/text_date_applied"
             card_view:layout_constraintStart_toEndOf="@+id/company_image"
             card_view:layout_constraintTop_toBottomOf="@+id/text_company_name" />

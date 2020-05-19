@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.jobappmotitracker.R;
 import com.example.jobappmotitracker.model.JobApplication;
 
 import java.util.ArrayList;
@@ -42,23 +43,35 @@ public class DBManager {
 
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValues);
     }
+    public String getApplicationStatusCount(String status){
+        String count;
+        String[] columns = new String[] { DatabaseHelper.COMPANY_NAME, DatabaseHelper.JOB_POSITION, DatabaseHelper.DATE_APPLIED, DatabaseHelper.LOCATION,
+                DatabaseHelper.PAY, DatabaseHelper.NOTES,DatabaseHelper.STATUS};
+        String whereClause = DatabaseHelper.STATUS + " = ?";
+        String[] whereArgs = new String[]{ status};
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, whereClause  , whereArgs, null, null, null);
+
+        return Integer.toString(cursor.getCount());
+    }
 
     public List<JobApplication> getAllJobApp(){
 
         List<JobApplication> apps = new ArrayList<>();
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.COMPANY_NAME, DatabaseHelper.DATE_APPLIED, DatabaseHelper.LOCATION,
+        String[] columns = new String[] { DatabaseHelper.COMPANY_NAME, DatabaseHelper.JOB_POSITION, DatabaseHelper.DATE_APPLIED, DatabaseHelper.LOCATION,
                         DatabaseHelper.PAY, DatabaseHelper.NOTES};
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
+
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null  , null, null, null, null);
+
         if(cursor.moveToFirst()){
             do{
                 JobApplication app = new JobApplication();
                 app.setCompanyName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COMPANY_NAME)));
-                app.setDateApplied(cursor.getString(cursor.getColumnIndex(DatabaseHelper.JOB_POSITION)));
-                app.setJobPosition(cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATE_APPLIED)));
-                app.setCity(cursor.getString(cursor.getColumnIndex(DatabaseHelper.LOCATION)));
+                app.setDateApplied(cursor.getString(cursor.getColumnIndex(DatabaseHelper.DATE_APPLIED)));
+                app.setJobPosition(cursor.getString(cursor.getColumnIndex(DatabaseHelper.JOB_POSITION)));
+                app.setLocation(cursor.getString(cursor.getColumnIndex(DatabaseHelper.LOCATION)));
                 app.setPay(cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.PAY)));
                 app.setNotes(cursor.getString(cursor.getColumnIndex(DatabaseHelper.NOTES)));
-
+                apps.add(app);
             }while(cursor.moveToNext());
         }
 
